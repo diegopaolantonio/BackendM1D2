@@ -87,21 +87,31 @@ const func = async () => {
   console.log(segundaConsulta);
 
   // busca e imprime el elemento con id = 2
-  let buscarId1 = await productManager.getProductById(2);
-  console.log(buscarId1);
+  let buscarId = await productManager.getProductById(2);
+  console.log(buscarId);
 
   // busca e imprime el elemento con id = 4
-  let buscarId2 = await productManager.getProductById(4);
-  console.log(buscarId2);
+  buscarId = await productManager.getProductById(4);
+  console.log(buscarId);
 
   // Modifica el un elemento del array por el id y el campo a actualizar
-  let actualizar = await productManager.updateProduct(2, {
+  let actualizado = await productManager.updateProduct(3, {
     description: "otra descripcion",
   });
-  console.log(actualizar);
+  console.log(actualizado);
+
+  // Modifica el un elemento del array por el id y el campo a actualizar
+  actualizado = await productManager.updateProduct(7, {
+    title: "otro titulo",
+  });
+  console.log(actualizado);
 
   // elimina un producto del array por el id
   let eliminados = await productManager.deleteProduct(1);
+  console.log(eliminados);
+
+  // elimina un producto del array por el id
+  eliminados = await productManager.deleteProduct(10);
   console.log(eliminados);
 };
 

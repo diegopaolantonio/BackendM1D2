@@ -77,7 +77,7 @@ export default class ProductManager {
     );
 
     if (productIndex === -1) {
-      return "Not found";
+      return "Not found to update";
     } else {
       products[productIndex] = { ...products[productIndex], ...product };
 
@@ -97,7 +97,7 @@ export default class ProductManager {
     );
 
     if (productIndex === -1) {
-      return "Not found";
+      return "Not found to delete";
     } else {
       const eliminado = products.filter((product) => product.id != productId);
 
