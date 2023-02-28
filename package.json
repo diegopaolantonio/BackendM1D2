@@ -1,7 +1,6 @@
 {
   "name": "desafio2paolantonio",
   "version": "1.0.0",
-  "description": "",
   "main": "ProductManager.js",
   "type": "module",
   "scripts": {
@@ -9,5 +8,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegopaolantonio/BackendM1D2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/diegopaolantonio/BackendM1D2/issues"
+  },
+  "homepage": "https://github.com/diegopaolantonio/BackendM1D2#readme",
+  "description": ""
 }

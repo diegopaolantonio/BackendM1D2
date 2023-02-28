@@ -1,16 +1,14 @@
 import fs from "fs";
 
-//  const path = "./files/FileProducts.json";
-
 export default class ProductManager {
   constructor() {
-    this.path = "./files/FileProducts.json";
+    this.path = "./files/fileproducts.json";
   }
   getProducts = async () => {
     if (fs.existsSync(this.path)) {
       const fileData = await fs.promises.readFile(this.path, "utf-8");
       const result = JSON.parse(fileData);
-      console.log(result);
+      // console.log(result);
       return result;
     } else {
       return [];
@@ -25,16 +23,13 @@ export default class ProductManager {
     );
 
     if (productIndex === -1) {
-      console.log("Not found");
-      return;
+      return "Not found";
     }
-    console.log(products[productIndex]);
+    return products[productIndex];
   };
 
   addProduct = async (product) => {
-    const products = await this.getProducts();
-
-    console.log(products);
+    let products = await this.getProducts();
 
     if (products.length === 0) {
       this.productToAdd = false;
@@ -56,17 +51,18 @@ export default class ProductManager {
     ) {
       if (!this.productToAdd) {
         products.push(product);
-        await fs.promises.writeFile(
-          this.path,
-          JSON.stringify(products, null, "\t")
-        );
+
+        const string = JSON.stringify(products, null, "\t");
+        // console.log(string);
+
+        await fs.promises.writeFile(this.path, string);
         return product;
       } else {
-        console.log("The product already exists");
+        return "The product already exists";
         return;
       }
     } else {
-      console.log("Missing data");
+      return "Missing data";
     }
   };
 }
