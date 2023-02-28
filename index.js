@@ -1,61 +1,90 @@
-
+import ProductManager from "./ProductManager.js";
 
 const productManager = new ProductManager();
 
-productManager.getProducts(); // Imprime el array vacio ya que no se agrego ningun producto todavia
+const func = async () => {
 
-productManager.addProduct(
-  // Producto 1
-  "M221",
-  "PLC",
-  220,
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF130224&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "SchneireM221",
-  250
-);
+  // let primerConsulta = await productManager.getProducts(); // Imprime el array vacio ya que no se agrego ningun producto todavia
+  // console.log(primerConsulta);
 
-productManager.addProduct(
-  // Producto sin un campo
-  //   "M221",
-  "PLC",
-  220,
-  "https://download.schneider-electric.com/files?p_Doc_Ref=PF130224&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "SchneireM221",
-  250
-);
+     // Producto 1
+  let product = {
+     title: "M221",
+     description: "PLC",
+     price: 220,
+     thumbnail:
+       "https://download.schneider-electric.com/files?p_Doc_Ref=PF130224&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
+     code: "SchneireM221",
+     stock: 250
+   };
 
-productManager.addProduct(
-  // Producto 2
-  "M241",
-  "PLC",
-  450,
-  "https://cdn.bpsolucioneselectricas.com.ar/uploads/1591999559_UEYxMzAyMjBfNDAwMHg0MDAwLnBuZw==.jpg",
-  "SchneireM241",
-  100
-);
+    let agregar = await productManager.addProduct(product); // Producto 1
+    console.log(agregar);
 
-productManager.addProduct(
-  // Producto repetido
-  "M241",
-  "PLC",
-  450,
-  "https://cdn.bpsolucioneselectricas.com.ar/uploads/1591999559_UEYxMzAyMjBfNDAwMHg0MDAwLnBuZw==.jpg",
-  "SchneireM241",
-  100
-);
+   product = {
+     // Producto sin un campo
+     //   title: "M221",
+     description: "PLC",
+     price: 220,
+     thumbnail:
+       "https://download.schneider-electric.com/files?p_Doc_Ref=PF130224&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
+     code: "SchneireM221",
+     stock: 250,
+   };
 
-https: productManager.addProduct(
-  // Producto 3
-  "Zelio",
-  "Programmable relay",
-  135,
-  "https://download.schneider-electric.com/files?p_Doc_Ref=SR_531_CPFJR16030&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
-  "SchneireZelio",
-  685
-);
+  //  agregar = await productManager.addProduct(product); // Producto 1
+  //  console.log(agregar);
 
-productManager.getProducts(); // Imprime el array completo
+   product = {
+     // Producto 2
+     title: "M241",
+     description: "PLC",
+     price: 450,
+     thumbnail:
+       "https://cdn.bpsolucioneselectricas.com.ar/uploads/1591999559_UEYxMzAyMjBfNDAwMHg0MDAwLnBuZw==.jpg",
+     code: "SchneireM241",
+     stock: 100,
+   };
 
-productManager.getProductById(2); // busca e imprime el elemento con id = 2
+  //  agregar = await productManager.addProduct(product); // Producto 1
+  //  console.log(agregar);
 
-productManager.getProductById(4); // busca e imprime el elemento con id = 4
+   product = {
+     // Producto repetido
+     title: "M241",
+     description: "PLC",
+     price: 450,
+     thumbnail:
+       "https://cdn.bpsolucioneselectricas.com.ar/uploads/1591999559_UEYxMzAyMjBfNDAwMHg0MDAwLnBuZw==.jpg",
+     code: "SchneireM241",
+     stock: 100,
+   };
+
+  //  agregar = await productManager.addProduct(product); // Producto 1
+  //  console.log(agregar);
+
+   product = {
+     // Producto 3
+     title: "Zelio",
+     description: "Programmable relay",
+     price: 135,
+     thumbnail:
+       "https://download.schneider-electric.com/files?p_Doc_Ref=SR_531_CPFJR16030&p_File_Type=rendition_369_jpg&default_image=DefaultProductImage.png",
+     code: "SchneireZelio",
+     stock: 685,
+   };
+
+  //  agregar = await productManager.addProduct(product); // Producto 1
+  //  console.log(agregar);
+
+  //  let segundaConsulta = await productManager.getProducts(); // Imprime el array completo
+  //  console.log(segundaConsulta);
+
+  //  let buscarId1 = await productManager.getProductById(2); // busca e imprime el elemento con id = 2
+  //  console.log(buscarId1);
+
+  //  let buscarId2 = await productManager.getProductById(4); // busca e imprime el elemento con id = 4
+  //  console.log(buscarId2);
+};
+
+func ();
